@@ -7,17 +7,24 @@ def menu():
         print("Enter q to quit")
         entry = input("Input: ")
         if entry == "1":
-            #call BMI handler
-            pass
+            bmiHandler()
+            print("\n \n")
         elif entry == "2":
-            #call savings handler
-            pass
+            savingsHandler()
+            print("\n \n")
         elif entry == "q":
             break
         else:
             print("This is an invalid input, please try again... \n \n")
     print("Thank you for using the program! Exiting...")
 
+#this handler will deal with calling the bmi functions
+def bmiHandler():
+    print("BMI Handler")
+
+
+def savingsHandler():
+    print("Savings handler")
 
 
 
