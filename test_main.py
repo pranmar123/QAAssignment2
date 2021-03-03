@@ -6,11 +6,14 @@ from main import *
 class TestMenu(unittest.TestCase):
     def test_intro(self):
         expected = "Welcome to the BMI/Savings Program"
-        
-        self.assert(intro(),)
+        self.assertEqual(intro(),expected)
 
 class TestBMI(unittest.TestCase):
     pass
 
 class TestRetirement(unittest.TestCase):
     pass
+
+
+if __name__ == '__main__': 
+    unittest.main() 
