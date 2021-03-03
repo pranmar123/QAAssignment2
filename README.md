@@ -13,4 +13,5 @@
 
 ### Languages and Tools
 - Developed on Python 3.8.5 (download here: https://www.python.org/downloads/release/python-385/)
+- We will use PyTest for testing using the test driven development
 - Python modules used: 
