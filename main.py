@@ -20,9 +20,10 @@ def menu():
 
 #this handler will deal with calling the bmi functions
 def bmiHandler():
-    print("BMI Handler")
+    print("Welcome to the")
 
 
+#handler for dealing with the savings
 def savingsHandler():
     print("Savings handler")
 
