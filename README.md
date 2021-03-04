@@ -8,7 +8,7 @@
 1. Download Python 3.8.5 or greater (ttps://www.python.org/downloads/release/python-385/)
 2. Download the ```QAAssignment2-main.zip``` on the GitHub repository or execute ``` git clone git@github.com:pranmar123/QAAssignment2.git ``` on Git Bash.
 3. Navigate to ```QAAssignment2``` folder
-4. Run the program on the command prompt using ```python3 main.py```
+4. Run the program on the command prompt using ```python main.py```
 
 
 ### Languages and Tools
@@ -17,4 +17,4 @@
 
 ### Running the unit tests
 1. Navigate to ```QAAssignment2``` folder
-2. Run the program on the command prompt using ```python3 test_main.py -b```
+2. Run the program on the command prompt using ```python test_main.py -b```
