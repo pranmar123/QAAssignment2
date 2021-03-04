@@ -8,11 +8,14 @@ def menu():
         entry = input("Input: ")
         if entry == "1":
             print("Welcome to the BMI calculator")
-            height = input("Enter your height in feet with a space then inches: (ex 4 10)")
-            weight = input("Enter your weight in pounds: ")
+            height = input("Enter your height in feet,inches (ex 4,10): ")
+            weight = input("Enter your weight in pounds (ex 180): ")
             value, category = bmiCalculator(height,weight)
-            print("Your BMI is: ",value,category)
-            print("\n \n")
+            if value == -1:
+                continue
+            else:
+                print("Your BMI is: ",value,category)
+                print("\n \n")
         elif entry == "2":
             print("Welcome to the Savings calculator")
             age = int(input("Please enter your current age: "))
@@ -31,6 +34,20 @@ def menu():
 
 #take strings as input and return value as float and category as string
 def bmiCalculator(height, weight):
+    #validate input else return -1
+    #break height input into a comma-separated list and convert the strings to ints
+    heightList = height.split(",")
+    try:
+        feet = int(heightList[0])
+        inches = int(heightList[1])
+        weight = int(weight)
+    except Exception as ex:
+        print("Invalid input was provided. Please see examples when providing input")
+        print("\n \n")
+        return -1,"-1"
+    
+    
+
     return 22.7, "Normal weight"
 
 
