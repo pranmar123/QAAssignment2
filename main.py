@@ -40,15 +40,41 @@ def bmiCalculator(height, weight):
     try:
         feet = int(heightList[0])
         inches = int(heightList[1])
-        weight = int(weight)
+        pounds = int(weight)
     except Exception as ex:
         print("Invalid input was provided. Please see examples when providing input")
         print("\n \n")
         return -1,"-1"
     
-    
+    #convert lbs to kilos
+    kilos = pounds * 0.45
 
-    return 22.7, "Normal weight"
+    #convert the feet to heights
+    inches = inches + (feet * 12)
+
+    #convert inches to meters
+    meters = inches * 0.025
+
+    #square the kilos 
+    kilosSquared = kilos * kilos
+
+    #calculate BMI
+    bmiValue = inches / kilosSquared
+    
+    #get category based on bmiValue
+    if (bmiValue < 18.5):
+        category = "Underweight"
+
+    elif (18.5 <= bmiValue <= 24.9):
+        category = "Normal weight"
+
+    elif (25 <= bmiValue <= 29.9):
+        category = "Overweight"
+
+    elif (bmiValue >= 30):
+        category = "Obese"
+
+    return bmiValue, category
 
 
 #Take age, annualSalary, percentSaved, moneyNeeded as strings and return age as int
