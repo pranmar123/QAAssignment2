@@ -9,7 +9,7 @@ def menu():
         if entry == "1":
             print("Welcome to the BMI calculator")
             height = input("Enter your height in feet with a space then inches: (ex 4 10)")
-            weight = int(input("Enter your weight in pounds: "))
+            weight = input("Enter your weight in pounds: ")
             value, category = bmiCalculator(height,weight)
             print("Your BMI is: ",value,category)
             print("\n \n")
@@ -29,11 +29,12 @@ def menu():
     print("Thank you for using the program! Exiting...")
 
 
+#take strings as input and return value as float and category as string
 def bmiCalculator(height, weight):
     pass
 
 
-
+#Take age, annualSalary, percentSaved, moneyNeeded as strings and return age as int
 def retirementCalculator(age, annualSalary, percentSaved, moneyNeeded):
     pass
 
