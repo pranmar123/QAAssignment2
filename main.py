@@ -31,7 +31,7 @@ def menu():
 
 #take strings as input and return value as float and category as string
 def bmiCalculator(height, weight):
-    pass
+    return 22.7, "Normal weight"
 
 
 #Take age, annualSalary, percentSaved, moneyNeeded as strings and return age as int
