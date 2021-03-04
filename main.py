@@ -1,16 +1,20 @@
 def menu():
-    print("Welcome to the BMI/Savings Program")
+    print("Welcome to the BMI/Retirement Calculators")
     entry = ""
     while (entry != "q"):
         print("Enter 1 for the BMI calculator")
-        print("Enter 2 for the Savings calculator")
+        print("Enter 2 for the Retirement calculator")
         print("Enter q to quit")
         entry = input("Input: ")
         if entry == "1":
-            bmiHandler()
+            print("Welcome to the BMI module")
+            height = input("Enter your height in feet with a space then inches: (ex 4 10)")
+            weight = int(input("Enter your weight in pounds: "))
+            value, category = bmiCalculator(height,weight)
+            print("Your BMI is: ",value,category)
             print("\n \n")
         elif entry == "2":
-            savingsHandler()
+            retirementCalculator()
             print("\n \n")
         elif entry == "q":
             break
@@ -18,14 +22,14 @@ def menu():
             print("This is an invalid input, please try again... \n \n")
     print("Thank you for using the program! Exiting...")
 
-#this handler will deal with calling the bmi functions
-def bmiHandler():
-    print("Welcome to the")
+
+def bmiCalculator(height, weight):
+    pass
 
 
-#handler for dealing with the savings
-def savingsHandler():
-    print("Savings handler")
+
+def retirementCalculator():
+    pass
 
 
 
