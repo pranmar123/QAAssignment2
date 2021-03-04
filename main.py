@@ -18,15 +18,18 @@ def menu():
                 print("Your BMI is: ",value,category)
                 print("\n \n")
         elif entry == "2":
-            print("Welcome to the Savings calculator")
-            age = int(input("Please enter your current age: "))
-            annualSalary = int(input("Enter your annual salary (without commas): $"))
-            percentSaved = int(input("Enter the percentage that you are saving: "))
-            moneyNeeded = int(input("Enter the total amount you want saved (without commas): "))
-            print("\n \n")
+            print("\nWelcome to the Savings calculator")
+            age = (input("Please enter your current age (ex 19): "))
+            annualSalary = (input("Enter your annual salary (ex 51,200 or 51200): "))
+            percentSaved = (input("Enter the percentage that you are saving (ex 12): "))
+            moneyNeeded = (input("Enter the total amount you want saved (ex 2,220,022 or 2220022): "))
             ageNeeded = retirementCalculator(age, annualSalary, percentSaved, moneyNeeded)
-            
-            print("\n \n")
+            if ageNeeded == -1:
+                continue
+            else:
+                print("You will reach your savings goal at: ",ageNeeded)
+                print("\n \n")
+
         elif entry == "q":
             break
         else:
@@ -47,6 +50,12 @@ def bmiCalculator(height, weight):
         print("Invalid input was provided. Please see examples when providing input")
         print("\n \n")
         return -1,"-1"
+    
+    if pounds <= 0 or feet < 0 or inches < 0:
+        print("Invalid input was provided. Please see examples when providing input")
+        return -1,"-1"
+    
+
     
     #convert lbs to kilos
     kilos = round((pounds * 0.45),2)
@@ -80,9 +89,37 @@ def bmiCalculator(height, weight):
 
 
 #Take age, annualSalary, percentSaved, moneyNeeded as strings and return age as int
-def retirementCalculator(age, annualSalary, percentSaved, moneyNeeded):
-    pass
+def retirementCalculator(currentAge, annualSalary, percentSaved, moneyNeeded):
+    #strip annualSalary and moneyNeeded if they have commas in them
+    annualSalary = annualSalary.replace(',','')
+    moneyNeeded = moneyNeeded.replace(',','')
+    #validate input else return -1
+    try:
+        currentAge = int(currentAge)
+        annualSalary = int(annualSalary)
+        percentSaved = float(percentSaved)
+        moneyNeeded = int(moneyNeeded)
+    except Exception as ex:
+        print("Invalid input was provided. Please see examples when providing input \n")
+        return -1
+    
+    if currentAge < 0 or currentAge >= 100 or annualSalary < 0 or percentSaved < 0 or percentSaved > 100 or moneyNeeded < 0:
+        print("Invalid input was provided. Please see examples when providing input \n")
+        return -1
 
+    #initalize savings
+    savings = 0.00
+    for i in range(currentAge,100):
+        thisYearSavings = annualSalary * (percentSaved/100)
+        #employer match
+        employerMatch = thisYearSavings * (.35)
+        thisYearSavings = thisYearSavings + employerMatch
+        savings = savings + thisYearSavings
+        if (savings >= moneyNeeded):
+            return i
+        
+    print("You will not meet your savings goal before you die. \n")
+    return -1
 
 
 
