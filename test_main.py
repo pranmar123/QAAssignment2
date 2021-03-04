@@ -11,20 +11,20 @@ class TestBMICalculator(unittest.TestCase):
         self.assertEqual(actualCategory,expectedCategory)
 
     def testUnderweightParameters(self):
-        actualValue, actualCategory = bmiCalculator("5,3", "50")
-        expectedValue, expectedCategory = 22.7, "Underweight"
+        actualValue, actualCategory = bmiCalculator("5,3", "100")
+        expectedValue, expectedCategory = 18.1, "Underweight"
         self.assertEqual(actualValue,expectedValue)
         self.assertEqual(actualCategory,expectedCategory)
 
     def testOverweightParameters(self):
-        actualValue, actualCategory = bmiCalculator("5,3", "50")
-        expectedValue, expectedCategory = 22.7, "Underweight"
+        actualValue, actualCategory = bmiCalculator("5,3", "150")
+        expectedValue, expectedCategory = 27.2, "Overweight"
         self.assertEqual(actualValue,expectedValue)
         self.assertEqual(actualCategory,expectedCategory)
 
     def testObeseParameters(self):
-        actualValue, actualCategory = bmiCalculator("5,3", "50")
-        expectedValue, expectedCategory = 22.7, "Underweight"
+        actualValue, actualCategory = bmiCalculator("5,3", "200")
+        expectedValue, expectedCategory = 36.3, "Obese"
         self.assertEqual(actualValue,expectedValue)
         self.assertEqual(actualCategory,expectedCategory)
 

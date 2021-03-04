@@ -10,6 +10,7 @@ def menu():
             print("Welcome to the BMI calculator")
             height = input("Enter your height in feet,inches (ex 4,10): ")
             weight = input("Enter your weight in pounds (ex 180): ")
+            print("\n \n")
             value, category = bmiCalculator(height,weight)
             if value == -1:
                 continue
@@ -22,6 +23,7 @@ def menu():
             annualSalary = int(input("Enter your annual salary (without commas): $"))
             percentSaved = int(input("Enter the percentage that you are saving: "))
             moneyNeeded = int(input("Enter the total amount you want saved (without commas): "))
+            print("\n \n")
             ageNeeded = retirementCalculator(age, annualSalary, percentSaved, moneyNeeded)
             
             print("\n \n")
@@ -47,20 +49,20 @@ def bmiCalculator(height, weight):
         return -1,"-1"
     
     #convert lbs to kilos
-    kilos = pounds * 0.45
+    kilos = round((pounds * 0.45),2)
 
     #convert the feet to heights
     inches = inches + (feet * 12)
 
     #convert inches to meters
-    meters = inches * 0.025
+    meters = round((inches * 0.025),3)
 
-    #square the kilos 
-    kilosSquared = kilos * kilos
+    #square the meters 
+    metersSquared = round((meters * meters),6)
 
     #calculate BMI
-    bmiValue = inches / kilosSquared
-    
+    bmiValue = round((kilos / metersSquared),1)
+
     #get category based on bmiValue
     if (bmiValue < 18.5):
         category = "Underweight"
