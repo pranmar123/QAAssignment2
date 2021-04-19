@@ -32,3 +32,12 @@ jobs:
     - name: Run unit tests
       run: |
         python test_processes.py -b
+        
+        - name: Generate Report
+    - name: Generate code coverage report
+      run: |
+        pip install coverage
+        coverage run -m unittest test_processes.py
+    - name: Upload Coverage to Codecov
+      uses: codecov/codecov-action@v1
+      with:
