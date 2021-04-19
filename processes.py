@@ -24,7 +24,7 @@ def bmiCalculator(heightFeet, heightInch, weight):
 
 def category(bmiValue):
     #get category based on bmiValue
-    if (bmiValue < 18.5):
+    if ( 0 <= bmiValue < 18.5 ):
         category = "Underweight"
 
     elif (18.5 <= bmiValue <= 24.9):
@@ -35,6 +35,11 @@ def category(bmiValue):
 
     elif (bmiValue >= 30):
         category = "Obese"
+
+    elif (bmiValue == -1):
+        category = "-1"
+
+    
 
     return category
 

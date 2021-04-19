@@ -6,49 +6,57 @@ from processes import *
 
 class TestBMICalculator(unittest.TestCase):
     def testNormalweightParameters(self):
-        actualValue, actualCategory = bmiCalculator("5,3", "125")
+        actualValue = bmiCalculator("5","3", "125")
+        actualCategory = category(22.7)
         expectedValue, expectedCategory = 22.7, "Normal weight"
         self.assertEqual(actualValue,expectedValue)
         self.assertEqual(actualCategory,expectedCategory)
 
     def testUnderweightParameters(self):
-        actualValue, actualCategory = bmiCalculator("5,3", "100")
+        actualValue= bmiCalculator("5","3", "100")
+        actualCategory = category(18.1)
         expectedValue, expectedCategory = 18.1, "Underweight"
         self.assertEqual(actualValue,expectedValue)
         self.assertEqual(actualCategory,expectedCategory)
 
     def testOverweightParameters(self):
-        actualValue, actualCategory = bmiCalculator("5,3", "150")
+        actualValue = bmiCalculator("5", "3", "150")
+        actualCategory = category(27.2)
         expectedValue, expectedCategory = 27.2, "Overweight"
         self.assertEqual(actualValue,expectedValue)
         self.assertEqual(actualCategory,expectedCategory)
 
     def testObeseParameters(self):
-        actualValue, actualCategory = bmiCalculator("5,3", "200")
+        actualValue = bmiCalculator("5", "3", "200")
+        actualCategory = category(36.3)
         expectedValue, expectedCategory = 36.3, "Obese"
         self.assertEqual(actualValue,expectedValue)
         self.assertEqual(actualCategory,expectedCategory)
 
     def testInvalidHeight(self):
-        actualValue, actualCategory = bmiCalculator("FiveThree", "200")
+        actualValue = bmiCalculator("Five", "Three", "200")
+        actualCategory = category(-1)
         expectedValue, expectedCategory = -1, "-1"
         self.assertEqual(actualValue,expectedValue)
         self.assertEqual(actualCategory,expectedCategory)
 
     def testInvalidWeight(self):
-        actualValue, actualCategory = bmiCalculator("5,3", "Three")
+        actualValue = bmiCalculator("5", "three", "Three")
+        actualCategory = category(-1)
         expectedValue, expectedCategory = -1, "-1"
         self.assertEqual(actualValue,expectedValue)
         self.assertEqual(actualCategory,expectedCategory)
 
     def testNegativeWeight(self):
-        actualValue, actualCategory = bmiCalculator("5,3", "-20")
+        actualValue = bmiCalculator("5", "3", "-20")
+        actualCategory = category(-1)
         expectedValue, expectedCategory = -1, "-1"
         self.assertEqual(actualValue,expectedValue)
         self.assertEqual(actualCategory,expectedCategory)
     
     def testNegativeHeight(self):
-        actualValue, actualCategory = bmiCalculator("-1,-3", "-20")
+        actualValue = bmiCalculator("-1", "-3", "-20")
+        actualCategory = category(-1)
         expectedValue, expectedCategory = -1, "-1"
         self.assertEqual(actualValue,expectedValue)
         self.assertEqual(actualCategory,expectedCategory)
