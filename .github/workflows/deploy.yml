@@ -66,4 +66,7 @@ jobs:
       
     # 
     - name: Perform a manual push to production once this code is merged. 
+      uses: actions/setup-python@v2
+        
+      
 
