@@ -33,7 +33,6 @@ jobs:
       run: |
         python test_processes.py -b
         
-        - name: Generate Report
     - name: Generate code coverage report
       run: |
         pip install coverage
@@ -41,3 +40,4 @@ jobs:
     - name: Upload Coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
+        fail_ci_if_error: true
