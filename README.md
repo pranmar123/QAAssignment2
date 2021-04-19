@@ -17,7 +17,7 @@
 
 ### Running the unit tests
 1. Navigate to ```QAAssignment2``` folder
-2. Run the program on the command prompt using ```python test_main.py -b```
+2. Run the program on the command prompt using ```python test_processes.py -b```
 
 ### Web Interface
 1. Our web application can be found here: https://qa3-4-310802.uc.r.appspot.com/
