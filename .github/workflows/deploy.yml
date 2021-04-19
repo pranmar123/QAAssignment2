@@ -4,6 +4,8 @@
 name: Python application
 
 on:
+  push:
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
@@ -37,7 +39,34 @@ jobs:
       run: |
         pip install coverage
         coverage run -m unittest test_processes.py
+        
     - name: Upload Coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
         fail_ci_if_error: true
+        
+  # Setup gcloud CLI
+  
+    - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      with:
+        service_account_email: ${{ secrets.GCP_EMAIL }}
+        service_account_key: ${{ secrets.GCP_CREDENTIALS }}
+        export_default_credentials: true
+    
+    # Configure Docker with Credentials
+    - name: Configure Docker
+      run: |
+        gcloud auth configure-docker
+      
+    # Build and deploy to staging area
+    - name: Deploy to Staging Area
+      run: |
+        gcloud config set project ${{ secrets.GCP_PROJECT }}
+        gcloud config set run/region us-central1
+      
+    # 
+    - name: Perform a manual push to production once this code is merged. 
+      uses: actions/setup-python@v2
+        
+      
+
