@@ -1,5 +1,5 @@
 import unittest
-from main import *
+from processes import *
 
 #Our web application can be found here: https://qa3-4-310802.uc.r.appspot.com/
 #establish two different classes for tests: one to test the BMI module, and the last to test the retirement module
